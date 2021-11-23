@@ -15,6 +15,10 @@ app.use( '/auth', require('./routes/auth') );
 app.use( '/ofertas', require('./routes/ofertas') );
 app.use( '/foro', require('./routes/foro') );
 
+app.get('*', (req,res) =>{
+    res.sendFile( path.resolve(__dirname, 'public/index.html'))
+})
+
 app.listen( process.env.PORT, () => {
     console.log(`Servidor corriendo en puerto ${ process.env.PORT }`);
 });
